@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share">berbagi</string>
+    <string name="image_highlight">tentang gambar</string>
+    <string name="source">Sumber</string>
+    <string name="source_detail">Detail Sumber</string>
+    <string name="type">Tipe</string>
+    <string name="kind_regulation">Jenis Regulasi</string>
+    <string name="number_regulation">Nomor Regulasi</string>
+    <string name="title_regulation">Judul Regulasi</string>
+    <string name="place_of_determination">Tempat Penetapan</string>
+    <string name="date_of_determination">Tanggal Penetapan</string>
+    <string name="release_date">Tanggal Perilisan</string>
+    <string name="status">Status</string>
+    <string name="history">Riwayat</string>
+    <string name="back">kembali</string>
+    <string name="title_detail">Detail Regulasi</string>
+    <string name="page_regulation">Halaman Regulasi</string>
+    <string name="subject_regulation">Regulasi Subject</string>
+    <string name="page_subject">Halaman Subject</string>
+</resources>
