@@ -13,7 +13,6 @@ import com.example.capstoneproject.R
 import com.example.capstoneproject.dataregulation.PageRegulationActivity
 import com.example.capstoneproject.databinding.ActivitySubjectSerializedBinding
 import com.example.capstoneproject.retrofit.DataClient
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -90,7 +89,7 @@ class SubjectSerializedActivity : AppCompatActivity() {
     }
 
     private fun getSearchAPI(username: String){
-        DataClient.InstanceApi.getSearch(username).enqueue(object :Callback<ArrayList<SubjectSerialized>>{
+        DataClient.InstanceApi.getSearchSubject(username).enqueue(object :Callback<ArrayList<SubjectSerialized>>{
             override fun onResponse(
                 call: Call<ArrayList<SubjectSerialized>>,
                 response: Response<ArrayList<SubjectSerialized>>

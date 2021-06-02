@@ -26,10 +26,13 @@ interface DataApi {
     fun getRegulationJdhin(@Query("source")dataID: Int): Call<SpecialSerialized>
 
     @GET("api/v1/subjects")
-    fun getSearch(@Query("search")dataInput: String): Call<ArrayList<SubjectSerialized>>
+    fun getSearchSubject(@Query("search") dataInput: String): Call<ArrayList<SubjectSerialized>>
 
     @GET("api/v1/sources")
     fun getSearchJdhin(@Query("search")dataInput: String): Call<ArrayList<JdhinSerialized>>
+
+    @GET("api/v1/documents")
+    fun getSearchDocument(@Query("search")dataInput: String): Call<SpecialSerialized>
 
     //fun getDataSpecial(@Query("subject")dataID: Int): Call<SpecialSerialized>
     //masukkan data di SubjectSerialized seperti title dan masa berlaku

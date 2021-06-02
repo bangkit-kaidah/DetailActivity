@@ -11,10 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.ActivityJdhinBinding
-import com.example.capstoneproject.datadetail.DetailActivity
-import com.example.capstoneproject.datadetailjdhin.DetailJdhinActivity
-import com.example.capstoneproject.dataregulation.AdapterRetrofit2
-import com.example.capstoneproject.dataregulation.DataSerialized
+import com.example.capstoneproject.datalistregulationJdhin.DetailJdhinActivity
 import com.example.capstoneproject.retrofit.DataClient
 import retrofit2.Call
 import retrofit2.Callback

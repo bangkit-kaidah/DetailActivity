@@ -68,4 +68,56 @@ class PageRegulationActivity : AppCompatActivity() {
         intent.putExtra(DetailActivity.EXTRA_DATA, date.id)
         startActivity(intent)
     }
+
+    //get searchnya
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val search = menu.findItem(R.id.search)
+        val searchV = search?.actionView as SearchView
+
+        searchV.setSearchableInfo(manager.getSearchableInfo(componentName))
+        searchV.queryHint = "Masukkan Data"
+        searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                getSearchDocument(query)
+                searchV.clearFocus()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                if (newText.isEmpty()){
+                    val gitId = intent.getIntExtra(EXTRA, 0)
+                    addData(gitId)
+                }
+                return false
+            }
+        })
+        return true
+    }
+
+    private fun getSearchDocument(username: String){
+        DataClient.InstanceApi.getSearchDocument(username).enqueue(object : Callback<SpecialSerialized>{
+            override fun onResponse(
+                call: Call<SpecialSerialized>,
+                response: Response<SpecialSerialized>
+            ) {
+                recyclerView.layoutManager = LinearLayoutManager(this@PageRegulationActivity)
+                recyclerView.adapter = adapterp
+                response.body()?.data?.let { adapterp.setterList(it) }
+                adapterp.setOnItemClickCallback(object : AdapterRetrofit2.OnItemClickCallback {
+                    override fun onItemClicked(data: DataSerialized) {
+                        showSelectedDate(data)
+                    }
+                })
+            }
+
+            override fun onFailure(call: Call<SpecialSerialized>, t: Throwable) {
+            }
+
+        })
+    }
+
 }

@@ -1,14 +1,12 @@
-package com.example.capstoneproject.datadetailjdhin
+package com.example.capstoneproject.datalistregulationJdhin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capstoneproject.databinding.ActivityDetailJdhinBinding
-import com.example.capstoneproject.datadetail.DetailSerialized
 import com.example.capstoneproject.dataregulation.AdapterRetrofit2
 import com.example.capstoneproject.dataregulation.DataSerialized
-import com.example.capstoneproject.dataregulation.PageRegulationActivity
 import com.example.capstoneproject.dataregulation.SpecialSerialized
 import com.example.capstoneproject.retrofit.DataClient
 import retrofit2.Call
@@ -20,7 +18,7 @@ class DetailJdhinActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_JDHIN = "extra_JDHIN"
     }
-//adapter harus beda ingat ed !!
+
     private lateinit var recyclerView: RecyclerView
     private var list: ArrayList<DataSerialized> = ArrayList()
     private lateinit var adapterp : AdapterRetrofit2
