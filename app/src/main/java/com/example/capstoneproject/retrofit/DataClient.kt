@@ -1,4 +1,4 @@
-package com.example.capstoneproject.item.retrofit
+package com.example.capstoneproject.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

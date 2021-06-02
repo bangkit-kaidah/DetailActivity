@@ -1,14 +1,18 @@
-package com.example.capstoneproject.item.serialized
+package com.example.capstoneproject.dataregulation
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class DataSerialized(
+
+    val id : Int,
     @SerializedName("judul_dokumen")
     val title: String,
 
     @SerializedName("nomor_peraturan")
     val numberRegulation: String,
 
+    @SerializedName("status")
     val status: DataId,
 
     val subject: DataSubject
@@ -16,11 +20,11 @@ data class DataSerialized(
 
 
 data class DataId(
-    val id: String,
-    val name: String
+    val id: Int,
+    var name: String
 )
 
 data class DataSubject(
-    val id: String,
+    val id: Int,
     val name: String
 )

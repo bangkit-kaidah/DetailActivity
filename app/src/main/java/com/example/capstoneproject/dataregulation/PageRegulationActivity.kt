@@ -1,4 +1,4 @@
-package com.example.capstoneproject
+package com.example.capstoneproject.dataregulation
 
 import android.app.SearchManager
 import android.content.Context
@@ -9,18 +9,19 @@ import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.capstoneproject.adapter.AdapterRetrofit2
+import com.example.capstoneproject.datadetail.DetailActivity
+import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.ActivityPageRegulationBinding
-import com.example.capstoneproject.item.adapter.AdapterRetrofit
-import com.example.capstoneproject.item.retrofit.DataClient
-import com.example.capstoneproject.item.serialized.DataSerialized
-import com.example.capstoneproject.item.serialized.SpecialSerialized
-import com.example.capstoneproject.item.serialized.SubjectSerialized
+import com.example.capstoneproject.retrofit.DataClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class PageRegulationActivity : AppCompatActivity() {
+
+    companion object {
+        const val EXTRA = "extra"
+    }
 
     private lateinit var recyclerView: RecyclerView
     private var list: ArrayList<DataSerialized> = ArrayList()
@@ -33,20 +34,13 @@ class PageRegulationActivity : AppCompatActivity() {
         setSupportActionBar(binding.tolbar3)
         recyclerView = binding.rvPageRegulation1
         adapterp = AdapterRetrofit2(list)
-        addData()
+        val gitId = intent.getIntExtra(EXTRA, 0)
+        addData(gitId)
         setContentView(binding.root)
     }
 
-
-
-    private fun showSelectedData(data: SubjectSerialized) {
-        val githubIntent = Intent(this, DetailActivity::class.java)
-        githubIntent.putExtra(DetailActivity.EXTRA_DATA, data)
-        startActivity(githubIntent)
-    }
-
-    private fun addData(){
-        DataClient.InstanceApi.getDataSpecial().enqueue(object : Callback<SpecialSerialized>{
+    private fun addData(id: Int){
+        DataClient.InstanceApi.getDataSpecial(id).enqueue(object : Callback<SpecialSerialized>{
             override fun onResponse(
                 call: Call<SpecialSerialized>,
                 response: Response<SpecialSerialized>
@@ -56,6 +50,11 @@ class PageRegulationActivity : AppCompatActivity() {
                     recyclerView.layoutManager = LinearLayoutManager(this@PageRegulationActivity)
                     recyclerView.adapter = adapterp
                     date?.let { adapterp.setterList(it) }
+                    adapterp.setOnItemClickCallback(object : AdapterRetrofit2.OnItemClickCallback {
+                        override fun onItemClicked(data: DataSerialized) {
+                            showSelectedDate(data)
+                        }
+                    })
                 }
             }
 
@@ -64,25 +63,9 @@ class PageRegulationActivity : AppCompatActivity() {
         })
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.search_menu, menu)
-        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val search = menu.findItem(R.id.search)
-        val searchV = search?.actionView as SearchView
-
-        searchV.setSearchableInfo(manager.getSearchableInfo(componentName))
-        searchV.queryHint = "Masukkan Data"
-        searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-                searchV.clearFocus()
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                return false
-            }
-        })
-        return true
+    private fun showSelectedDate(date: DataSerialized) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_DATA, date.id)
+        startActivity(intent)
     }
 }

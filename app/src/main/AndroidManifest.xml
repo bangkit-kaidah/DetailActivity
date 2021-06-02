@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneProject">
-        <activity android:name=".Test2Activity"></activity>
-        <activity android:name=".PageRegulationActivity" />
-        <activity android:name=".item.ListRegulationActivity" />
-        <activity android:name=".UnitTestingActivity" />
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".datadetailjdhin.DetailJdhinActivity"></activity>
+        <activity android:name=".datajdhin.JdhinActivity" />
+        <activity android:name=".datasubject.SubjectSerializedActivity" />
+        <activity android:name=".dataregulation.PageRegulationActivity" />
+        <activity android:name=".datadetail.DetailActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

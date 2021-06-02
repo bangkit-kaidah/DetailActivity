@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DetailActivity"
+    tools:context=".datadetail.DetailActivity"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -34,11 +34,11 @@
                 app:layout_collapseMode="pin">
 
                 <Button
-                    android:id="@+id/button3"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/shareToolbar"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_marginStart="20dp"
-                    android:background="@drawable/ic_baseline_arrow_back_24"
+                    android:background="@drawable/ic_baseline_share_24"
                     />
 
                 <TextView
@@ -46,7 +46,7 @@
                     style="@style/whiteTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10sp"/>
+                    android:layout_marginEnd="10sp" />
             </androidx.appcompat.widget.Toolbar>
 
             <View
@@ -270,7 +270,7 @@
         android:layout_marginEnd="30sp"
         android:layout_marginBottom="30sp"
         android:background="@color/black"
-        android:src="@color/teal_200"
+        android:src="@drawable/ic_baseline_download_for_offline_24"
         android:contentDescription="@string/for_download" />
 
 

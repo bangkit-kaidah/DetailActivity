@@ -1,4 +1,4 @@
-package com.example.capstoneproject.adapter
+package com.example.capstoneproject.dataregulation
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capstoneproject.R
-import com.example.capstoneproject.item.serialized.DataSerialized
 
 class AdapterRetrofit2(private var list: ArrayList<DataSerialized>): RecyclerView.Adapter<AdapterRetrofit2.RetrofitViewHolder>(){
 
@@ -34,7 +33,8 @@ class AdapterRetrofit2(private var list: ArrayList<DataSerialized>): RecyclerVie
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RetrofitViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_data, viewGroup, false)
+        val view: View = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.item_row_data, viewGroup, false)
 
         return RetrofitViewHolder(view)
     }
@@ -42,7 +42,7 @@ class AdapterRetrofit2(private var list: ArrayList<DataSerialized>): RecyclerVie
     override fun onBindViewHolder(holder: RetrofitViewHolder, position: Int) {
         val github = list[position]
         holder.tvName.text = github.title
-        holder.number.text = github.numberRegulation
+        holder.number.text = "No. ${github.numberRegulation}"
         holder.status.text = github.status.name
         holder.subject.text = github.subject.name
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(list[holder.adapterPosition])}
