@@ -9,10 +9,12 @@
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:orientation="vertical"
         tools:targetApi="p">
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -20,11 +22,11 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/image_for_title"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"
                 android:src="@drawable/background_title_1"
-                android:contentDescription="@string/image_for_title" />
+                app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/Toolbar"
@@ -38,8 +40,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginStart="20dp"
-                    android:background="@drawable/ic_baseline_share_24"
-                    />
+                    android:background="@drawable/ic_baseline_share_24" />
 
                 <TextView
                     android:id="@+id/textToolbar"
@@ -92,7 +93,7 @@
                 android:text="@string/source_detail" />
 
             <TextView
-                android:id="@+id/source_detail"
+                android:id="@+id/subject"
                 style="@style/textViewDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,7 +132,9 @@
                 android:id="@+id/kind_regulation"
                 style="@style/textViewDetail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:linksClickable="true"/>
 
             <View
                 style="@style/view"
@@ -246,17 +249,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/history" />
 
-            <TextView
-                android:id="@+id/history"
-                style="@style/textViewDetail"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_history123"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-            <View
-                style="@style/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="20sp"/>
 
         </LinearLayout>
 

@@ -20,9 +20,22 @@ data class DetailSerialized(
     @SerializedName("file_url")
     val sourceDetail: String,
     val link: String,
+
+    val related: ArrayList<DataHistory>,
+
     val status: StatusData,
+    val subject: SubjectData,
+    val source: SourceData,
     @SerializedName("document_type")
     val type: TypeData
+)
+
+data class DataHistory(
+    val id: Int,
+    @SerializedName("judul_dokumen")
+    val titleDoc: String,
+    @SerializedName("tanggal_penetapan")
+    val dateDoc: String
 )
 
 data class StatusData(
@@ -31,6 +44,14 @@ data class StatusData(
 
 
 data class TypeData(
+    val name: String
+)
+
+data class SourceData(
+    val name: String
+)
+
+data class SubjectData(
     val name: String
 )
 

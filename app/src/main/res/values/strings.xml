@@ -5,9 +5,9 @@
     <string name="hukum_tentang_keuangan" translatable="false">hukum tentang keuangan</string>
     <string name="source">Source</string>
     <string name="testing" translatable="false">asdfghjkl;sdfghjklsdfghjkldfghjkldfghjklfghjklghjkldfghjklsfghjkfghjkdfghjklhjkghjghjknj fghjkfghjklfghjkcvbnmvbnmfghjk jkghj</string>
-    <string name="source_detail">Source Detail</string>
+    <string name="source_detail">Subject</string>
     <string name="type">Type</string>
-    <string name="kind_regulation">Kind Regulation</string>
+    <string name="kind_regulation">Document Link</string>
     <string name="number_regulation">Number Regulation</string>
     <string name="title_regulation">Title Regulation</string>
     <string name="place_of_determination">Place of Determination</string>

@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.capstoneproject.datadetail.DetailActivity
 import com.example.capstoneproject.datajdhin.JdhinActivity
-import com.example.capstoneproject.dataregulation.PageRegulationActivity
 import com.example.capstoneproject.datasubject.SubjectSerializedActivity
 
 class MainActivity : AppCompatActivity() {

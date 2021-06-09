@@ -22,12 +22,15 @@ class SubjectSerializedActivity : AppCompatActivity() {
     private lateinit var adapterSubject: AdapterSubject
     private val list: ArrayList<SubjectSerialized> = arrayListOf()
     private lateinit var recyclerView: RecyclerView
+    private lateinit var layoutManagerrv : LinearLayoutManager
 
     private lateinit var binding: ActivitySubjectSerializedBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySubjectSerializedBinding.inflate(layoutInflater)
         setSupportActionBar(binding.tolbar4)
+        layoutManagerrv = LinearLayoutManager(this)
+
         addDataFromAPI()
         adapterSubject = AdapterSubject(list)
         recyclerView = binding.rvSubject
@@ -40,7 +43,7 @@ class SubjectSerializedActivity : AppCompatActivity() {
                 call: Call<ArrayList<SubjectSerialized>>,
                 response: Response<ArrayList<SubjectSerialized>>
             ) {
-                recyclerView.layoutManager = LinearLayoutManager(this@SubjectSerializedActivity)
+                recyclerView.layoutManager = layoutManagerrv
                 recyclerView.adapter = adapterSubject
                 response.body()?.let { adapterSubject.setterList(it) }
                 adapterSubject.setOnItemClickCallback(object : AdapterSubject.OnItemClickCallback{
@@ -52,7 +55,6 @@ class SubjectSerializedActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ArrayList<SubjectSerialized>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
 
         })
@@ -94,7 +96,7 @@ class SubjectSerializedActivity : AppCompatActivity() {
                 call: Call<ArrayList<SubjectSerialized>>,
                 response: Response<ArrayList<SubjectSerialized>>
             ) {
-                recyclerView.layoutManager = LinearLayoutManager(this@SubjectSerializedActivity)
+                recyclerView.layoutManager = layoutManagerrv
                 recyclerView.adapter = adapterSubject
                 response.body()?.let { adapterSubject.setterList(it) }
                 adapterSubject.setOnItemClickCallback(object : AdapterSubject.OnItemClickCallback{

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneProject">
-        <activity android:name=".datalistregulationJdhin.DetailJdhinActivity"></activity>
+        <activity android:name=".datahistory.HistoryActivity"></activity>
+        <activity android:name=".datalistregulationJdhin.DetailJdhinActivity" />
         <activity android:name=".datajdhin.JdhinActivity" />
         <activity android:name=".datasubject.SubjectSerializedActivity" />
         <activity android:name=".dataregulation.PageRegulationActivity" />
